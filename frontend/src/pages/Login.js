@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import Container from '@mui/material/Container';
 import { toast } from 'react-toastify';
 
 function Login() {
@@ -17,16 +18,17 @@ function Login() {
         const isSuccess = login(email, password);
 
         if (isSuccess) {
+            toast.success('Welcome! Samuel', {position: "bottom-right"});
             navigate('/dashboard');
         } else {
-            toast.error('Login Failed. Please check your credentials.', {position: "top-center"});
+            toast.error('Login Failed. Please check your credentials.');
             navigate('/login');
         }
     };
 
     return (
 
-        <div>
+        <Container maxWidth="md">
             <h1> Login </h1>
             <form onSubmit={handleSubmit}>
                 <input
@@ -45,7 +47,7 @@ function Login() {
                 />
                 <button type="submit">Login</button>
             </form>
-        </div>
+        </Container>
     );
 }
 

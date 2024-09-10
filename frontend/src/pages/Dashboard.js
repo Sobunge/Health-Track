@@ -1,13 +1,16 @@
 import React from 'react';
-import Logout from './Logout';
+import Container from '@mui/material/Container';
+import ResponsiveAppBar from '../components/DashboardAppBar';
 
 function Dashboard() {
 
   return (
     <div>
-      <h1>Dashboard</h1>
-      <Logout />
-      {/* Include your HealthCard components or other dashboard content here */}
+      <ResponsiveAppBar />
+      <Container maxWidth="xl">
+        <h1>Dashboard</h1>
+        {/* Include your HealthCard components or other dashboard content here */}
+      </Container>
     </div>
   );
 }
