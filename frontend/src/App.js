@@ -1,13 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-import Main from './pages/Main';
-import Login from './pages/Login';
-import NotFound from './pages/NotFound';
-import Profile from './pages/Profile';
-import Settings from './pages/Settings';
 import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
+import Main from './pages/Main';
+import Settings from './pages/Settings';
+import Login from './pages/Login';
+import Reports from './pages/Reports';
+import ResetPassword from './pages/ResetPassword';
+import SignUp from './pages/SignUp';
 import PrivateRoute from './components/PrivateRoute';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path='/reset-password' element={<ResetPassword />} />
+            <Route path='signup' element={<SignUp />} />
           </Route>
 
           {/* Fallback Route for 404 */}
