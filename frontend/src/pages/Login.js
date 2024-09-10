@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { toast } from 'react-toastify';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const [error, setError] = useState('');
     const { login } = useAuth();
 
     const handleSubmit = async (event) => {
@@ -19,7 +19,7 @@ function Login() {
         if (isSuccess) {
             navigate('/dashboard');
         } else {
-            setError('Login Failed. Please check your credentials.');
+            toast.error('Login Failed. Please check your credentials.', {position: "top-center"});
             navigate('/login');
         }
     };
@@ -28,7 +28,6 @@ function Login() {
 
         <div>
             <h1> Login </h1>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
             <form onSubmit={handleSubmit}>
                 <input
                     type="email"

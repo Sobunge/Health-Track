@@ -11,6 +11,8 @@ import ResetPassword from './pages/ResetPassword';
 import SignUp from './pages/SignUp';
 import PrivateRoute from './components/PrivateRoute';
 import NotFound from './pages/NotFound';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -35,6 +37,7 @@ function App() {
           {/* Fallback Route for 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ToastContainer />
       </Router>
     </AuthProvider>
   );

@@ -1,13 +1,12 @@
 import React from 'react';
-import { useAuth } from '../context/AuthContext';
+import Logout from './Logout';
 
 function Dashboard() {
-  const { logout } = useAuth();
 
   return (
     <div>
       <h1>Dashboard</h1>
-      <button onClick={logout}>Logout</button>
+      <Logout />
       {/* Include your HealthCard components or other dashboard content here */}
     </div>
   );
