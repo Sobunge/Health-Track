@@ -29,7 +29,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/reports" element={<Reports />} />
             <Route path='/reset-password' element={<ResetPassword />} />
-            <Route path='signup' element={<SignUp />} />
+            <Route path='/signup' element={<SignUp />} />
           </Route>
 
           {/* Fallback Route for 404 */}
