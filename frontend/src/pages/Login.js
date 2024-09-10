@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import Container from '@mui/material/Container';
 import { toast } from 'react-toastify';
 import IndexAppBar from '../components/IndexAppBar';
+import Footer from '../components/footer';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -29,7 +30,7 @@ function Login() {
 
     return (
 
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', paddingTop: '20px' }}>
             <IndexAppBar />
             <Container maxWidth="xl">
                 <h1> Login </h1>
@@ -51,6 +52,7 @@ function Login() {
                     <button type="submit">Login</button>
                 </form>
             </Container>
+            <Footer />
         </div>
 
     );
