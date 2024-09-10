@@ -7,6 +7,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const [error, setError] = useState('');
     const { login } = useAuth();
 
     const handleSubmit = async (event) => {
@@ -16,10 +17,9 @@ function Login() {
         const isSuccess = login(email, password);
 
         if (isSuccess) {
-            alert('Login Success');
             navigate('/dashboard');
         } else {
-            alert('Login Failed');
+            setError('Login Failed. Please check your credentials.');
             navigate('/login');
         }
     };
@@ -28,6 +28,7 @@ function Login() {
 
         <div>
             <h1> Login </h1>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
             <form onSubmit={handleSubmit}>
                 <input
                     type="email"
