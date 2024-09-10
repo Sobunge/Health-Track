@@ -6,6 +6,7 @@ import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
+import { Link as RouterLink } from 'react-router-dom';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
@@ -24,9 +25,9 @@ const drawerWidth = 240;
 const iconSize = 20;
 
 const navItems = [
-    { name: 'Home', icon: <HomeIcon sx={{ fontSize: iconSize }} /> },
-    { name: 'Login', icon: <LoginIcon sx={{ fontSize: iconSize }} /> },
-    { name: 'Register', icon: <HowToRegIcon sx={{ fontSize: iconSize }} /> }
+    { name: 'Home', icon: <HomeIcon sx={{ fontSize: iconSize }} />, link: '/' },
+    { name: 'Login', icon: <LoginIcon sx={{ fontSize: iconSize }} />, link: '/login' },
+    { name: 'Register', icon: <HowToRegIcon sx={{ fontSize: iconSize }} />, link: '/signup' }
 ];
 
 // Define the shaking animation
@@ -55,7 +56,7 @@ function DrawerAppBar(props) {
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item.name} disablePadding>
-                        <ListItemButton sx={{
+                        <ListItemButton component={RouterLink} to={item.link} sx={{
                             transition: 'transform 0.3s ease',
                             '&:hover': {
                                 animation: `${shake} 0.5s ease`,
@@ -114,7 +115,7 @@ function DrawerAppBar(props) {
                                     '&:hover': {
                                         animation: `${shake} 0.5s ease`,
                                     },
-                                }} startIcon={item.icon}>
+                                }} startIcon={item.icon} component={RouterLink} to={item.link}>
                                     {item.name}
                                 </Button>
                             ))}
