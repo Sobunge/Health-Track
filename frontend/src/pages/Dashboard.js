@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from '@mui/material/Container';
 import ResponsiveAppBar from '../components/DashboardAppBar';
+import Footer from '../components/footer';
 
 function Dashboard() {
 
@@ -11,6 +12,7 @@ function Dashboard() {
         <h1>Dashboard</h1>
         {/* Include your HealthCard components or other dashboard content here */}
       </Container>
+      <Footer />
     </div>
   );
 }

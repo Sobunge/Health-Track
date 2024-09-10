@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import IndexAppBar from '../components/IndexAppBar';
+import Footer from '../components/footer';
 
 
 function Index() {
@@ -12,12 +13,13 @@ function Index() {
   };
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', paddingTop: '20px'}}>
       <IndexAppBar />
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{ flexGrow: 1 }}>
         <h1>Welcome to the Health Track App</h1>
         <button onClick={handleLoginRedirect}>Go to Login</button>
       </Container>
+      <Footer />
     </div>
   );
 }
