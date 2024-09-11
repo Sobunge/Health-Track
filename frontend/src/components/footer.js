@@ -6,7 +6,7 @@ const Footer = () => {
         <Box
             component="footer"
             sx={{
-                color: 'black',
+                color: 'white',
                 py: 2,
                 mt: 'auto', // Push footer to the bottom if using Flexbox
                 textAlign: 'center',
