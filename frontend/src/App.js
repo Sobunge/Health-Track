@@ -22,6 +22,7 @@ function App() {
           {/* Unprotected Routes */}
           <Route path="/" element={<Main />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<SignUp />} />
 
           {/* Protected Routes */}
           <Route element={<PrivateRoute />}>
@@ -31,7 +32,6 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/reports" element={<Reports />} />
             <Route path='/reset-password' element={<ResetPassword />} />
-            <Route path='/signup' element={<SignUp />} />
           </Route>
 
           {/* Fallback Route for 404 */}

@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { Container, Box, TextField, Button, Typography } from '@mui/material';
 import { toast } from 'react-toastify';
 import IndexAppBar from '../components/IndexAppBar';
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 
 function Login() {
     const [email, setEmail] = useState('');

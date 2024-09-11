@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from '@mui/material/Container';
 import ResponsiveAppBar from '../components/DashboardAppBar';
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 
 function Dashboard() {
 
