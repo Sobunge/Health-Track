@@ -6,13 +6,13 @@ import Footer from '../components/Footer';
 function Dashboard() {
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#bcbcbc' }}>
       <ResponsiveAppBar />
       <Container maxWidth="xl">
         <h1>Dashboard</h1>
         {/* Include your HealthCard components or other dashboard content here */}
       </Container>
-      <Footer />
+      <Footer footerColor='black'/>
     </div>
   );
 }

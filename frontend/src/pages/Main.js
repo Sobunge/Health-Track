@@ -16,7 +16,7 @@ function Index() {
       <Container maxWidth="xl" sx={{ flexGrow: 1 }}>
         <HeroComponent />
       </Container>
-      <Footer />
+      <Footer footerColor='white'/>
     </div>
   );
 }

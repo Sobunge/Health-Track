@@ -1,12 +1,12 @@
 import React from 'react';
 import { Box, Typography, Container } from '@mui/material';
 
-const Footer = () => {
+const Footer = ({footerColor}) => {
     return (
         <Box
             component="footer"
             sx={{
-                color: 'white',
+                color: footerColor,
                 py: 2,
                 mt: 'auto', // Push footer to the bottom if using Flexbox
                 textAlign: 'center',
