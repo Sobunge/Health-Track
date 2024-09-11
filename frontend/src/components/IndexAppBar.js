@@ -90,25 +90,24 @@ function DrawerAppBar(props) {
                             aria-label="open drawer"
                             edge="start"
                             onClick={handleDrawerToggle}
-                            sx={{ mr: 2, display: { sm: 'none' } }}
+                            sx={{ mr: 2, display: { md: 'none' } }}
                         >
                             <MenuIcon />
                         </IconButton>
+                        <Box
+                            component="img"
+                            src="/images/favicon.ico" // Reference to your favicon in the public folder
+                            alt="Health Icon"
+                            sx={{ mr: 2, width: 30, height: 30, display: { xs: 'none', md: 'flex' } }} // Styling for the icon
+                        />
                         <Typography
                             variant="h6"
                             component="div"
-                            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                            sx={{ flexGrow: 1, display: { sm: 'block' } }}
                         >
                             Health Track
                         </Typography>
-                        <Typography
-                            variant="h6"
-                            component="div"
-                            sx={{ flexGrow: 1, display: { xs: 'block', sm: 'none' } }}
-                        >
-                            Health Track
-                        </Typography>
-                        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                             {navItems.map((item) => (
                                 <Button key={item.name} sx={{
                                     color: '#fff', textTransform: 'none', marginRight: '15px', transition: 'transform 0.3s ease',
@@ -133,7 +132,7 @@ function DrawerAppBar(props) {
                         keepMounted: true, // Better open performance on mobile.
                     }}
                     sx={{
-                        display: { xs: 'block', sm: 'none' },
+                        display: { md: 'block', xl: 'none' },
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}
                 >

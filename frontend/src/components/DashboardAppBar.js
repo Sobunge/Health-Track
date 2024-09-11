@@ -11,7 +11,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { toast } from 'react-toastify';
@@ -41,21 +40,24 @@ function ResponsiveAppBar() {
     };
 
     const handleLogout = () => {
-        // Clear authentication tokens or any user session information
-        localStorage.removeItem('authToken'); // Example if using local storage
-        // Update authentication state
+        localStorage.removeItem('authToken');
         logout();
-        // Show success message
         toast.success('Logout successful!');
-        // Redirect after a short delay
-        setTimeout(() => navigate('/login'), 2000); // Redirect after 2 seconds
+        setTimeout(() => navigate('/login'), 2000);
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" sx={{ backgroundColor: '#646c66' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    {/* Add the image from the public folder */}
+                    <Box
+                        component="img"
+                        src="/images/favicon.ico" // Reference to your favicon in the public folder
+                        alt="Health Icon"
+                        sx={{ mr: 2, width: 30, height: 30, display: { xs: 'none', md: 'flex' } }} // Styling for the icon
+                    />
+
                     <Typography
                         variant="h6"
                         noWrap
@@ -71,7 +73,7 @@ function ResponsiveAppBar() {
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        Health Track
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -108,7 +110,7 @@ function ResponsiveAppBar() {
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
                     <Typography
                         variant="h5"
                         noWrap
@@ -125,8 +127,9 @@ function ResponsiveAppBar() {
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        Health Track
                     </Typography>
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
@@ -138,6 +141,7 @@ function ResponsiveAppBar() {
                             </Button>
                         ))}
                     </Box>
+
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -166,7 +170,7 @@ function ResponsiveAppBar() {
                                     onClick={() => {
                                         if (setting === 'Logout') {
                                             handleCloseUserMenu();
-                                            handleLogout(); // Call the logout function here
+                                            handleLogout();
                                         } else {
                                             handleCloseUserMenu();
                                         }
