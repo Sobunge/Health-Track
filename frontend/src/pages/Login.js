@@ -44,7 +44,7 @@ function Login() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    minHeight: '100vh',  // Ensures full height
+                    minHeight: '90vh',  // Ensures full height
                 }}
             >
                 <Box
