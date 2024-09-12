@@ -1,6 +1,16 @@
 import React from 'react';
 import { Box, Typography, Button, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { keyframes } from '@emotion/react';
+
+// Define the shaking animation
+const shake = keyframes`
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(0); }
+  75% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+`;
 
 function HeroSection() {
     const navigate = useNavigate();
@@ -18,6 +28,12 @@ function HeroSection() {
                 backgroundImage: "url('/images/hero-background.jpg')", // Optional background image
                 backgroundSize: 'cover', // Cover the entire section
                 backgroundPosition: 'center', // Center the background image
+            }}
+
+            style={{
+                display: 'flex', flexDirection: 'column', minHeight: '100vh', paddingTop: '20px', backgroundImage: "url('/images/index.jpg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
             }}
         >
             <Container maxWidth="md" sx={{
@@ -46,6 +62,10 @@ function HeroSection() {
                         padding: '10px 20px',
                         fontSize: '1.2rem',
                         borderRadius: '8px',
+                        transition: 'transform 0.3s ease',
+                        '&:hover': {
+                            animation: `${shake} 0.5s ease`,
+                        },
                     }}
                 >
                     Sign Up Now

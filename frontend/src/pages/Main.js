@@ -1,21 +1,16 @@
 import React from 'react';
-import Container from '@mui/material/Container';
 import IndexAppBar from '../components/IndexAppBar';
 import Footer from '../components/Footer';
 import HeroComponent from '../components/HeroComponent';
+import FeaturesOverview from '../components/FeaturesOverview';
 
 function Index() {
 
   return (
-    <div style={{
-      display: 'flex', flexDirection: 'column', minHeight: '100vh', paddingTop: '20px', backgroundImage: "url('/images/index.jpg')",
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-    }}>
+    <div>
       <IndexAppBar />
-      <Container maxWidth="xl" sx={{ flexGrow: 1 }}>
         <HeroComponent />
-      </Container>
+        <FeaturesOverview />
       <Footer footerColor='white'/>
     </div>
   );
