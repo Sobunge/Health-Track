@@ -1,5 +1,5 @@
 import React from 'react';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider } from '@mui/material';
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Box, Typography } from '@mui/material';
 import { Dashboard, Settings, BarChart, ExitToApp } from '@mui/icons-material';
 
 const drawerWidth = 240;
@@ -7,6 +7,17 @@ const drawerWidth = 240;
 function Sidebar({ mobileOpen, handleDrawerToggle }) {
     const drawer = (
         <div>
+            <Box sx={{ display: 'flex', alignItems: 'center', padding: '1rem' }}>
+                <Box
+                    component="img"
+                    src="/images/favicon.ico"
+                    alt="Health Track Logo"
+                    sx={{ width: 40, height: 40, borderRadius: '50%' }}
+                />
+                <Typography variant="h6" sx={{ ml: 1 }}>
+                    Health Track
+                </Typography>
+            </Box>
             <List>
                 <ListItem button>
                     <ListItemIcon>
@@ -43,27 +54,25 @@ function Sidebar({ mobileOpen, handleDrawerToggle }) {
 
     return (
         <>
-            {/* Drawer for mobile */}
             <Drawer
                 variant="temporary"
                 open={mobileOpen}
                 onClose={handleDrawerToggle}
                 ModalProps={{
-                    keepMounted: true, // Better open performance on mobile
+                    keepMounted: true,
                 }}
                 sx={{
-                    display: { xs: 'block', sm: 'none' }, // Only show on mobile
+                    display: { xs: 'block', sm: 'none' },
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}
             >
                 {drawer}
             </Drawer>
 
-            {/* Permanent drawer for large screens */}
             <Drawer
                 variant="permanent"
                 sx={{
-                    display: { xs: 'none', sm: 'block' }, // Hide on mobile
+                    display: { xs: 'none', sm: 'block' },
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}
                 open

@@ -14,21 +14,13 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 
-function ResponsiveAppBar() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
+function ResponsiveAppBar({ handleDrawerToggle }) {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const navigate = useNavigate();
     const { logout } = useAuth();
 
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
     };
 
     const handleCloseUserMenu = () => {
@@ -52,7 +44,6 @@ function ResponsiveAppBar() {
                         alt="Health Icon"
                         sx={{ mr: 2, width: 30, height: 30, display: { xs: 'none', md: 'flex' } }}
                     />
-
                     <Typography
                         variant="h6"
                         noWrap
@@ -70,21 +61,18 @@ function ResponsiveAppBar() {
                     >
                         Health Track
                     </Typography>
-
-                    {/* Menu icon for mobile */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
                             aria-label="open menu"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
+                            onClick={handleDrawerToggle}
                             color="inherit"
                         >
                             <MenuIcon />
                         </IconButton>
                     </Box>
-
                     <Typography
                         variant="h5"
                         noWrap
@@ -103,11 +91,7 @@ function ResponsiveAppBar() {
                     >
                         Health Track
                     </Typography>
-
-                    {/* This Box will push the avatar to the far right */}
                     <Box sx={{ flexGrow: 1 }} />
-
-                    {/* User profile and logout */}
                     <Box sx={{ flexGrow: 0, ml: 'auto' }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
