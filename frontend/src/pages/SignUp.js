@@ -1,3 +1,4 @@
+// src/pages/SignUp.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -25,7 +26,7 @@ function SignUp() {
     }
 
     // Call register function from AuthContext
-    const result = register(firstName, middleName, lastName, email, password);
+    const result = await register(firstName, middleName, lastName, email, password);
 
     if (result.success) {
       toast.success('Registration successful! Redirecting to login...');
@@ -47,12 +48,12 @@ function SignUp() {
     }}>
       <IndexAppBar />
       <Container
-        maxWidth="sm" // Increased width
+        maxWidth="sm"
         sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          minHeight: '90vh', // Ensures full height
+          minHeight: '90vh',
         }}
       >
         <Box
@@ -61,11 +62,11 @@ function SignUp() {
           alignItems="center"
           justifyContent="center"
           sx={{
-            backgroundColor: 'rgba(0, 0, 0, 0.7)', // Semi-transparent background
-            padding: '2rem', // Padding for spacing
-            borderRadius: '8px', // Rounded corners
-            boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', // Light shadow for depth
-            width: '100%' // Ensures full width of container
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            padding: '2rem',
+            borderRadius: '8px',
+            boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+            width: '100%',
           }}
         >
           <Typography variant="h4" component="h1" gutterBottom style={{ color: 'white' }}>
@@ -82,10 +83,8 @@ function SignUp() {
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   required
-                  InputLabelProps={{ style: { color: 'white' } }} // White label color
-                  InputProps={{
-                    style: { color: 'white' }, // White input text
-                  }}
+                  InputLabelProps={{ style: { color: 'white' } }}
+                  InputProps={{ style: { color: 'white' } }}
                 />
               </Grid>
               <Grid item xs={12} sm={4}>
@@ -96,10 +95,8 @@ function SignUp() {
                   margin="normal"
                   value={middleName}
                   onChange={(e) => setMiddleName(e.target.value)}
-                  InputLabelProps={{ style: { color: 'white' } }} // White label color
-                  InputProps={{
-                    style: { color: 'white' }, // White input text
-                  }}
+                  InputLabelProps={{ style: { color: 'white' } }}
+                  InputProps={{ style: { color: 'white' } }}
                 />
               </Grid>
               <Grid item xs={12} sm={4}>
@@ -111,10 +108,8 @@ function SignUp() {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   required
-                  InputLabelProps={{ style: { color: 'white' } }} // White label color
-                  InputProps={{
-                    style: { color: 'white' }, // White input text
-                  }}
+                  InputLabelProps={{ style: { color: 'white' } }}
+                  InputProps={{ style: { color: 'white' } }}
                 />
               </Grid>
             </Grid>
@@ -127,10 +122,8 @@ function SignUp() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              InputLabelProps={{ style: { color: 'white' } }} // White label color
-              InputProps={{
-                style: { color: 'white' }, // White input text
-              }}
+              InputLabelProps={{ style: { color: 'white' } }}
+              InputProps={{ style: { color: 'white' } }}
             />
             <TextField
               label="Password"
@@ -141,10 +134,8 @@ function SignUp() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              InputLabelProps={{ style: { color: 'white' } }} // White label color
-              InputProps={{
-                style: { color: 'white' }, // White input text
-              }}
+              InputLabelProps={{ style: { color: 'white' } }}
+              InputProps={{ style: { color: 'white' } }}
             />
             <TextField
               label="Confirm Password"
@@ -155,10 +146,8 @@ function SignUp() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-              InputLabelProps={{ style: { color: 'white' } }} // White label color
-              InputProps={{
-                style: { color: 'white' }, // White input text
-              }}
+              InputLabelProps={{ style: { color: 'white' } }}
+              InputProps={{ style: { color: 'white' } }}
             />
             <Button
               type="submit"

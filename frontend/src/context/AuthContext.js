@@ -1,41 +1,53 @@
 import React, { createContext, useContext, useState } from 'react';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'; // Firebase methods
+import { auth } from '../firebase'; // Firebase config
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
-  const [users, setUsers] = useState(new Map()); // Store users in a Map
 
-  const login = (email, password) => {
-    // Check if email exists and password matches
-    const user = users.get(email);
-    if (user && user.password === password) {
+  const login = async (email, password) => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
       setIsAuthenticated(true);
-      setCurrentUser(user); // Set current user
-      return true;
+      setCurrentUser(userCredential.user);
+      return { success: true };
+    } catch (error) {
+      console.error('Login error:', error);
+      return { success: false, message: error.message };
     }
-    return false;
   };
 
-  const logout = () => {
-    setIsAuthenticated(false);
-    setCurrentUser(null); // Clear current user
+  const register = async (firstName, middleName, lastName, email, password) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      // Add custom fields to user profile, if necessary
+      setIsAuthenticated(true);
+      setCurrentUser({
+        ...userCredential.user,
+        displayName: `${firstName} ${lastName}`,
+      });
+      return { success: true };
+    } catch (error) {
+      console.error('Registration error:', error);
+      return { success: false, message: error.message };
+    }
   };
 
-  const register = (firstName, middleName, lastName, email, password) => {
-    // Check if email is already registered
-    if (users.has(email)) {
-      return { success: false, message: 'Email already in use' };
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      setIsAuthenticated(false);
+      setCurrentUser(null);
+    } catch (error) {
+      console.error('Logout error:', error);
     }
-
-    // Add new user to the Map
-    setUsers(new Map(users.set(email, { firstName, middleName, lastName, email, password })));
-    return { success: true, message: 'Registration successful' };
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout, register, currentUser }}>
+    <AuthContext.Provider value={{ isAuthenticated, login, register, logout, currentUser }}>
       {children}
     </AuthContext.Provider>
   );

@@ -16,11 +16,11 @@ function Login() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Call login function from AuthContext and check if login is successful
+        // Call login function from AuthContext (now using Firebase)
         const isSuccess = await login(email, password);
 
         if (isSuccess) {
-            toast.success('Welcome! Samuel', { position: "bottom-right" });
+            toast.success('Welcome!', { position: "bottom-right" });
             navigate('/dashboard');
         } else {
             toast.error('Login Failed. Please check your credentials.');

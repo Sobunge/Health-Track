@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -8,15 +8,11 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { toast } from 'react-toastify';
-
-const pages = ['Reports', 'Settings', 'Blog'];
-const settings = ['Profile', 'Logout'];
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -50,19 +46,18 @@ function ResponsiveAppBar() {
         <AppBar position="static" sx={{ backgroundColor: '#646c66' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    {/* Add the image from the public folder */}
                     <Box
                         component="img"
-                        src="/images/favicon.ico" // Reference to your favicon in the public folder
+                        src="/images/favicon.ico"
                         alt="Health Icon"
-                        sx={{ mr: 2, width: 30, height: 30, display: { xs: 'none', md: 'flex' } }} // Styling for the icon
+                        sx={{ mr: 2, width: 30, height: 30, display: { xs: 'none', md: 'flex' } }}
                     />
 
                     <Typography
                         variant="h6"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
+                        href="#"
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
@@ -76,10 +71,11 @@ function ResponsiveAppBar() {
                         Health Track
                     </Typography>
 
+                    {/* Menu icon for mobile */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
-                            aria-label="account of current user"
+                            aria-label="open menu"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
@@ -87,35 +83,13 @@ function ResponsiveAppBar() {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{ display: { xs: 'block', md: 'none' } }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
                     </Box>
 
                     <Typography
                         variant="h5"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
+                        href="#"
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -130,22 +104,14 @@ function ResponsiveAppBar() {
                         Health Track
                     </Typography>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
-                        ))}
-                    </Box>
+                    {/* This Box will push the avatar to the far right */}
+                    <Box sx={{ flexGrow: 1 }} />
 
-                    <Box sx={{ flexGrow: 0 }}>
+                    {/* User profile and logout */}
+                    <Box sx={{ flexGrow: 0, ml: 'auto' }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/images/avatar.png" />
+                                <Avatar alt="User" src="/images/avatar.png" />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -164,21 +130,17 @@ function ResponsiveAppBar() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem
-                                    key={setting}
-                                    onClick={() => {
-                                        if (setting === 'Logout') {
-                                            handleCloseUserMenu();
-                                            handleLogout();
-                                        } else {
-                                            handleCloseUserMenu();
-                                        }
-                                    }}
-                                >
-                                    <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
-                                </MenuItem>
-                            ))}
+                            <MenuItem onClick={handleCloseUserMenu}>
+                                <Typography sx={{ textAlign: 'center' }}>Profile</Typography>
+                            </MenuItem>
+                            <MenuItem
+                                onClick={() => {
+                                    handleCloseUserMenu();
+                                    handleLogout();
+                                }}
+                            >
+                                <Typography sx={{ textAlign: 'center' }}>Logout</Typography>
+                            </MenuItem>
                         </Menu>
                     </Box>
                 </Toolbar>
