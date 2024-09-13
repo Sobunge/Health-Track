@@ -1,14 +1,14 @@
 import React from 'react';
 import { List, ListItem, ListItemText, Typography, Box, Divider } from '@mui/material';
 
-function ActivityLog({ activities }) {
+function HealthTipsList({ tips }) {
   return (
-    <Box sx={{ m: 3, p: 2, borderRadius: 2, backgroundColor: '#f9f9f9', boxShadow: 2 }}>
+    <Box sx={{ m: 3, p: 2, borderRadius: 2, backgroundColor: '#f5f5f5', boxShadow: 2 }}>
       <Typography variant="h5" sx={{ mb: 2, fontWeight: 'bold', color: '#333' }}>
-        Recent Activities
+        Health Tips
       </Typography>
       <List>
-        {activities.map((activity, index) => (
+        {tips.map((tip, index) => (
           <React.Fragment key={index}>
             <ListItem
               sx={{
@@ -18,17 +18,17 @@ function ActivityLog({ activities }) {
                 boxShadow: 1,
                 transition: '0.3s',
                 '&:hover': {
-                  backgroundColor: '#e0e0e0',
+                  backgroundColor: '#f0f0f0',
                   cursor: 'pointer'
                 },
                 p: 2
               }}
             >
               <ListItemText 
-                primary={activity.name} 
-                secondary={activity.date} 
-                primaryTypographyProps={{ fontWeight: 'medium' }}
-                secondaryTypographyProps={{ color: 'text.secondary' }}
+                primary={tip.title} 
+                secondary={tip.description} 
+                primaryTypographyProps={{ fontWeight: 'medium', color: '#333' }}
+                secondaryTypographyProps={{ color: '#666' }}
               />
             </ListItem>
             <Divider />
@@ -39,4 +39,4 @@ function ActivityLog({ activities }) {
   );
 }
 
-export default ActivityLog;
+export default HealthTipsList;
