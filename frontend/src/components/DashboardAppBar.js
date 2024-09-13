@@ -42,7 +42,7 @@ function ResponsiveAppBar({ handleDrawerToggle }) {
                         component="img"
                         src="/images/favicon.ico"
                         alt="Health Icon"
-                        sx={{ mr: 2, width: 30, height: 30, display: { xs: 'none', md: 'flex' } }}
+                        sx={{ mr: 2, width: 30, height: 30, display: { xs: 'none', sm: 'flex' } }}
                     />
                     <Typography
                         variant="h6"
@@ -51,7 +51,7 @@ function ResponsiveAppBar({ handleDrawerToggle }) {
                         href="#"
                         sx={{
                             mr: 2,
-                            display: { xs: 'none', md: 'flex' },
+                            display: { xs: 'none', sm: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
@@ -61,7 +61,7 @@ function ResponsiveAppBar({ handleDrawerToggle }) {
                     >
                         Health Track
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
                         <IconButton
                             size="large"
                             aria-label="open menu"
@@ -79,11 +79,13 @@ function ResponsiveAppBar({ handleDrawerToggle }) {
                         component="a"
                         href="#"
                         sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
+                            display: { xs: 'flex', sm: 'none' },
+                            justifyContent: 'center', // Center the content horizontally
+                            alignItems: 'center', // Center the content vertically
                             flexGrow: 1,
                             fontFamily: 'monospace',
                             fontWeight: 700,
+                            fontSize: '20px',
                             letterSpacing: '.3rem',
                             color: 'inherit',
                             textDecoration: 'none',
@@ -96,6 +98,9 @@ function ResponsiveAppBar({ handleDrawerToggle }) {
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="User" src="/images/avatar.png" />
+                                <Typography variant="body1" sx={{ ml: 1, color: 'white', display: { xs: 'none', sm: 'none', md: 'none', xl: 'block' } }}>
+                                    Sobunge
+                                </Typography>
                             </IconButton>
                         </Tooltip>
                         <Menu

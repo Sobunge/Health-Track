@@ -1,23 +1,32 @@
 import React from 'react';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Box, Typography } from '@mui/material';
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Box, Typography, Stack } from '@mui/material';
 import { Dashboard, Settings, BarChart, ExitToApp } from '@mui/icons-material';
-
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 const drawerWidth = 240;
 
 function Sidebar({ mobileOpen, handleDrawerToggle }) {
     const drawer = (
         <div>
-            <Box sx={{ display: 'flex', alignItems: 'center', padding: '1rem' }}>
-                <Box
-                    component="img"
-                    src="/images/favicon.ico"
-                    alt="Health Track Logo"
-                    sx={{ width: 40, height: 40, borderRadius: '50%' }}
-                />
-                <Typography variant="h6" sx={{ ml: 1 }}>
-                    Health Track
-                </Typography>
+            <Box sx={{ padding: '1rem' }}>
+                <Stack
+                    direction="column"
+                    spacing={1}
+                    alignItems="center"
+                >
+                    <Box
+                        component="img"
+                        src="/images/android-chrome-512x512.png"
+                        alt="Health Track Logo"
+                        sx={{ width: 50, height: 50 }}
+                    />
+                    <Typography variant="h6">
+                        Health Track
+                    </Typography>
+                </Stack>
             </Box>
+
+            <Divider />
+
             <List>
                 <ListItem button>
                     <ListItemIcon>
@@ -31,6 +40,13 @@ function Sidebar({ mobileOpen, handleDrawerToggle }) {
                         <BarChart />
                     </ListItemIcon>
                     <ListItemText primary="Reports" />
+                </ListItem>
+
+                <ListItem button>
+                    <ListItemIcon>
+                        <AccountBoxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Profile" />
                 </ListItem>
 
                 <ListItem button>
@@ -72,7 +88,7 @@ function Sidebar({ mobileOpen, handleDrawerToggle }) {
             <Drawer
                 variant="permanent"
                 sx={{
-                    display: { xs: 'none', sm: 'block' },
+                    display: { xs: 'none', sm: 'block'},
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}
                 open
