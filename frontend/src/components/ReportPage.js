@@ -4,6 +4,7 @@ import {
     Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 } from '@mui/material';
 import { Line } from 'react-chartjs-2';
+import Chart from 'chart.js/auto';
 
 function ReportPage() {
     const [selectedPeriod, setSelectedPeriod] = useState('monthly');

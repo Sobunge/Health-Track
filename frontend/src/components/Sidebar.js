@@ -2,12 +2,25 @@ import React from 'react';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Box, Typography, Stack } from '@mui/material';
 import { Dashboard, Settings, BarChart, ExitToApp } from '@mui/icons-material';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import { Link, useLocation} from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
 const drawerWidth = 240;
 
 function Sidebar({ mobileOpen, handleDrawerToggle }) {
 
     const location = useLocation();
+    const navigate = useNavigate();
+    const { logout } = useAuth();
+
+    const handleLogout = () => {
+        localStorage.removeItem('authToken');
+        logout();
+        toast.success('Logout successful!');
+        setTimeout(() => navigate('/login'), 2000);
+    };
 
     const drawer = (
         <div>
@@ -94,7 +107,9 @@ function Sidebar({ mobileOpen, handleDrawerToggle }) {
 
                 <Divider />
 
-                <ListItem button>
+                <ListItem button onClick={() => {
+                    handleLogout();
+                }}>
                     <ListItemIcon>
                         <ExitToApp />
                     </ListItemIcon>
