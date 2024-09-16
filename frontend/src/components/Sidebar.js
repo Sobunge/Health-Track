@@ -2,9 +2,13 @@ import React from 'react';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Box, Typography, Stack } from '@mui/material';
 import { Dashboard, Settings, BarChart, ExitToApp } from '@mui/icons-material';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import { Link, useLocation} from 'react-router-dom';
 const drawerWidth = 240;
 
 function Sidebar({ mobileOpen, handleDrawerToggle }) {
+
+    const location = useLocation();
+
     const drawer = (
         <div>
             <Box sx={{ padding: '1rem' }}>
@@ -28,28 +32,60 @@ function Sidebar({ mobileOpen, handleDrawerToggle }) {
             <Divider />
 
             <List>
-                <ListItem button>
+                <ListItem button component={Link} to="/dashboard" sx={{
+                    backgroundColor: location.pathname === '/dashboard' ? '#f0f0f0' : 'transparent',
+                    '&:hover': {
+                        backgroundColor: '#e0e0e0', // Hover effect
+                    },
+                    '&.Mui-selected': {
+                        backgroundColor: '#d0d0d0',
+                    },
+                }}>
                     <ListItemIcon>
                         <Dashboard />
                     </ListItemIcon>
                     <ListItemText primary="Overview" />
                 </ListItem>
 
-                <ListItem button>
+                <ListItem button component={Link} to="/reports" sx={{
+                    backgroundColor: location.pathname === '/reports' ? '#f0f0f0' : 'transparent',
+                    '&:hover': {
+                        backgroundColor: '#e0e0e0', // Hover effect
+                    },
+                    '&.Mui-selected': {
+                        backgroundColor: '#d0d0d0',
+                    },
+                }}>
                     <ListItemIcon>
                         <BarChart />
                     </ListItemIcon>
                     <ListItemText primary="Reports" />
                 </ListItem>
 
-                <ListItem button>
+                <ListItem button component={Link} to="/profile" sx={{
+                    backgroundColor: location.pathname === '/profile' ? '#f0f0f0' : 'transparent',
+                    '&:hover': {
+                        backgroundColor: '#e0e0e0', // Hover effect
+                    },
+                    '&.Mui-selected': {
+                        backgroundColor: '#d0d0d0',
+                    },
+                }}>
                     <ListItemIcon>
                         <AccountBoxIcon />
                     </ListItemIcon>
                     <ListItemText primary="Profile" />
                 </ListItem>
 
-                <ListItem button>
+                <ListItem button component={Link} to="/settings" sx={{
+                    backgroundColor: location.pathname === '/settings' ? '#f0f0f0' : 'transparent',
+                    '&:hover': {
+                        backgroundColor: '#e0e0e0', // Hover effect
+                    },
+                    '&.Mui-selected': {
+                        backgroundColor: '#d0d0d0',
+                    },
+                }}>
                     <ListItemIcon>
                         <Settings />
                     </ListItemIcon>
@@ -88,7 +124,7 @@ function Sidebar({ mobileOpen, handleDrawerToggle }) {
             <Drawer
                 variant="permanent"
                 sx={{
-                    display: { xs: 'none', sm: 'block'},
+                    display: { xs: 'none', sm: 'block' },
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}
                 open
