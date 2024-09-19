@@ -1,123 +1,70 @@
-# HealthTrack
+# Getting Started with Create React App
 
-**Tagline:** Empowering Users to Take Control of Their Health
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies](#technologies)
-- [Architecture](#architecture)
-- [Installation](#installation)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
+## Available Scripts
 
-## Introduction
-HealthTrack is a web application designed to help users monitor and manage various aspects of their health. It provides a centralized platform for tracking exercise routines, calorie intake, sleep patterns, and medical appointments. HealthTrack aims to empower users to make informed decisions about their health by providing detailed data analysis and visualizations.
+In the project directory, you can run:
 
-## Features
-- User registration and authentication
-- Track and analyze exercise routines
-- Monitor calorie intake and dietary habits
-- Log sleep patterns and medical appointments
-- Data visualizations using Chart.js
-- Secure and private data handling
+### `npm start`
 
-## Technologies
-### Languages
-- **Python** (backend)
-- **JavaScript** (frontend)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### Frameworks
-- **Flask** (backend)
-- **React** (frontend)
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### Database
-- **PostgreSQL**
+### `npm test`
 
-### Libraries
-- **Pandas** (data analysis)
-- **Chart.js** (data visualization)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Architecture
-The project follows a client-server architecture with a Flask-based backend and a React-based frontend. Data flows from the user interface to the backend server, which processes and stores the data in a PostgreSQL database. Visualizations are created on the frontend using Chart.js.
+### `npm run build`
 
-![Architecture Diagram](architecture_diagram.png)
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Installation
-### Backend
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/healthtrack.git
-    cd healthtrack/backend
-    ```
-2. Create and activate a virtual environment:
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
-3. Install the required packages:
-    ```bash
-    pip install -r requirements.txt
-    ```
-4. Set up the database:
-    ```bash
-    export FLASK_APP=run.py
-    flask db init
-    flask db migrate -m "Initial migration."
-    flask db upgrade
-    ```
-5. Run the server:
-    ```bash
-    flask run
-    ```
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Frontend
-1. Navigate to the frontend directory:
-    ```bash
-    cd ../frontend
-    ```
-2. Install the dependencies:
-    ```bash
-    npm install
-    ```
-3. Start the development server:
-    ```bash
-    npm start
-    ```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Usage
-1. Open your browser and navigate to `http://localhost:3000` to access the HealthTrack application.
-2. Register a new account and log in.
-3. Start tracking your health data by adding exercises, dietary entries, sleep logs, and medical appointments.
+### `npm run eject`
 
-## API Documentation
-### `/api/user`
-- **GET**: Returns a list of all users
-- **POST**: Creates a new user
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-### `/api/health`
-- **GET**: Returns a list of all health data entries
-- **POST**: Adds a new health data entry
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Contributing
-We welcome contributions to improve HealthTrack! Please follow these steps:
-1. Fork the repository.
-2. Create a new branch:
-    ```bash
-    git checkout -b feature-branch
-    ```
-3. Make your changes and commit them:
-    ```bash
-    git commit -m "Description of changes"
-    ```
-4. Push to your branch:
-    ```bash
-    git push origin feature-branch
-    ```
-5. Create a pull request and describe your changes.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-## License
-HealthTrack is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
