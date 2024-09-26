@@ -17,7 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      <Router basename="/Health-Track">
         <Routes>
           {/* Unprotected Routes */}
           <Route path="/" element={<Main />} />

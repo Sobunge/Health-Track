@@ -25,7 +25,7 @@ function HeroSection() {
                 alignItems: 'center', // Center content horizontally
                 textAlign: 'center',
                 padding: '2rem',
-                backgroundImage: "url('/images/index.jpg')", // Optional background image
+                backgroundImage: "url('/Health-Track/images/index.jpg')", // Optional background image
                 backgroundSize: 'cover', // Cover the entire section
                 backgroundPosition: 'center', // Center the background image
                 overflow: 'hidden', // Prevent overflow

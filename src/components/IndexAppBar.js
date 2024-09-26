@@ -96,7 +96,7 @@ function DrawerAppBar(props) {
                         </IconButton>
                         <Box
                             component="img"
-                            src="/images/favicon.ico" // Reference to your favicon in the public folder
+                            src="/Health-Track/images/favicon.ico" // Reference to your favicon in the public folder
                             alt="Health Icon"
                             sx={{ mr: 2, width: 30, height: 30, display: { xs: 'none', md: 'flex' } }} // Styling for the icon
                         />

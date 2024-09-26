@@ -40,7 +40,7 @@ function SignUp() {
       display: 'flex',
       flexDirection: 'column',
       minHeight: '100vh',
-      backgroundImage: "url('/images/login.jpg')",
+      backgroundImage: "url('/Health-Track/images/login.jpg')",
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       color: 'white'
