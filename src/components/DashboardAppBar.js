@@ -46,7 +46,7 @@ function ResponsiveAppBar({ handleDrawerToggle }) {
                 <Toolbar disableGutters>
                     <Box
                         component="img"
-                        src="/images/favicon.ico"
+                        src="/Health-Track/images/favicon.ico"
                         alt="Health Icon"
                         sx={{ mr: 2, width: 30, height: 30, display: { xs: 'none', sm: 'flex' } }}
                     />
@@ -103,7 +103,7 @@ function ResponsiveAppBar({ handleDrawerToggle }) {
                     <Box sx={{ flexGrow: 0, ml: 'auto' }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="User" src="/images/avatar.png" />
+                                <Avatar alt="User" src="/Health-Track/images/avatar.png" />
                                 <Typography variant="body1" sx={{ ml: 1, color: 'white', display: { xs: 'none', sm: 'none', md: 'none', xl: 'block' } }}>
                                     {capitalizeFirstLetter(currentUser?.firstName)}
                                 </Typography>

@@ -32,7 +32,7 @@ function Sidebar({ mobileOpen, handleDrawerToggle }) {
                 >
                     <Box
                         component="img"
-                        src="/images/android-chrome-512x512.png"
+                        src="/Health-Track/images/android-chrome-512x512.png"
                         alt="Health Track Logo"
                         sx={{ width: 50, height: 50 }}
                     />

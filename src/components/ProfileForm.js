@@ -30,7 +30,7 @@ function ProfileForm() {
                 email: currentUser.email || '',
                 phone: currentUser.phoneNumber || '',
                 address: currentUser.address || '',
-                avatar: currentUser.photoURL || '/images/avatar.png',
+                avatar: currentUser.photoURL || '/Health-Track/images/avatar.png',
             });
         }
     }, [currentUser, isAuthenticated]);

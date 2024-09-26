@@ -1,6 +1,7 @@
 // CTABanner.jsx
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { keyframes } from '@emotion/react';
 
 // Define the shaking animation
@@ -34,7 +35,8 @@ const CTABanner = () => {
                     variant="contained"
                     color="secondary"
                     size="large"
-                    href="/signup"
+                    component={Link}
+                    to="/signup"
                     sx={{
                         padding: '10px 20px',
                         fontSize: '1.2rem',
