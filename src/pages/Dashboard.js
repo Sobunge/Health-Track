@@ -16,7 +16,7 @@ function Dashboard() {
 
   const userData = {
     userName: "John Doe",
-    avatar: "/images/avatar.png",
+    avatar: "/Health-Track/images/avatar.png",
     steps: 12345,
     calories: 678,
     goalProgress: 75,
