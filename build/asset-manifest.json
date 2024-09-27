@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Health-Track/static/css/main.42fa63de.css",
+    "main.js": "/Health-Track/static/js/main.46e23e80.js",
+    "index.html": "/Health-Track/index.html",
+    "main.42fa63de.css.map": "/Health-Track/static/css/main.42fa63de.css.map",
+    "main.46e23e80.js.map": "/Health-Track/static/js/main.46e23e80.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42fa63de.css",
+    "static/js/main.46e23e80.js"
+  ]
+}
